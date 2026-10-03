@@ -2,10 +2,13 @@
 
 ASB Blocker is a configurable domain blocker. Choose which groups of sites to block, and edit the domains in each group. This is the first cut of the Manifest V3 (MV3) version.
 
+## What this is
+
+Upstream attribution: fork of [AndreasGB/axelspringerblocker](https://github.com/AndreasGB/axelspringerblocker), licensed under GPL-3.0.
+
 - **License:** [GPL-3.0](LICENSE)
-- **Fork of:** [AndreasGB/axelspringerblocker](https://github.com/AndreasGB/axelspringerblocker)
 - **Work item:** MESHDEV-129
-- **Release:** [v0.1.0-mv3-first-cut](https://github.com/JoMangee/axelspringerblocker/releases/tag/v0.1.0-mv3-first-cut)
+- **Release:** [v0.1.0-mv3-first-cut](https://github.com/JoMangee/asblocker/releases/tag/v0.1.0-mv3-first-cut)
 
 ## Install the unpacked extension
 
@@ -13,7 +16,7 @@ This first cut is installed from a folder on your computer. You do not need to b
 
 ### Chrome
 
-1. [Download the branch ZIP](https://github.com/JoMangee/axelspringerblocker/archive/refs/heads/mv3-config-first-cut.zip) and extract it.
+1. [Download the branch ZIP](https://github.com/JoMangee/asblocker/archive/refs/heads/mv3-config-first-cut.zip) and extract it.
 2. Open `chrome://extensions`.
 3. Turn on **Developer mode**.
 4. Click **Load unpacked**.
@@ -21,7 +24,7 @@ This first cut is installed from a folder on your computer. You do not need to b
 
 ### Firefox
 
-1. [Download the same branch ZIP](https://github.com/JoMangee/axelspringerblocker/archive/refs/heads/mv3-config-first-cut.zip) and extract it.
+1. [Download the same branch ZIP](https://github.com/JoMangee/asblocker/archive/refs/heads/mv3-config-first-cut.zip) and extract it.
 2. Open `about:debugging#/runtime/this-firefox`.
 3. Click **Load Temporary Add-on…**. Firefox does not use Chrome's Developer mode switch on this page.
 4. In the extracted project, open **`extension_mv3`** and select its `manifest.json` file. Do **not** select anything in the old `extension/` folder.
