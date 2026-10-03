@@ -1,10 +1,12 @@
-# ASB Blocker MV3 first cut
+# ASB Blocker
 
 ## What this is
 
 ASB Blocker is a configurable domain blocker. This is the first cut of its Manifest V3 version (MV3). It lets you choose which groups of websites to block and edit the domain lists for those groups.
 
-This project is licensed under [GPL-3.0](https://github.com/JoMangee/axelspringerblocker/blob/mv3-config-first-cut/LICENSE). It is a fork of [AndreasGB/axelspringerblocker](https://github.com/AndreasGB/axelspringerblocker). This work is tracked as **MESHDEV-129**.
+Upstream attribution: fork of [AndreasGB/axelspringerblocker](https://github.com/AndreasGB/axelspringerblocker), licensed under GPL-3.0.
+
+This project is licensed under [GPL-3.0](https://github.com/JoMangee/asblocker/blob/mv3-config-first-cut/LICENSE). This work is tracked as **MESHDEV-129**.
 
 ## Install the unpacked extension
 
@@ -12,8 +14,8 @@ An “unpacked” extension is one loaded directly from the folder you extracted
 
 ### Chrome
 
-1. [Download the branch ZIP](https://github.com/JoMangee/axelspringerblocker/archive/refs/heads/mv3-config-first-cut.zip).
-2. Extract the ZIP file. Open the extracted `axelspringerblocker-mv3-config-first-cut` folder.
+1. [Download the branch ZIP](https://github.com/JoMangee/asblocker/archive/refs/heads/mv3-config-first-cut.zip).
+2. Extract the ZIP file. Open the extracted `asblocker-mv3-config-first-cut` folder.
 3. In Chrome, open `chrome://extensions`.
 4. Turn on **Developer mode**.
 5. Click **Load unpacked**.
@@ -21,8 +23,8 @@ An “unpacked” extension is one loaded directly from the folder you extracted
 
 ### Firefox
 
-1. [Download the same branch ZIP](https://github.com/JoMangee/axelspringerblocker/archive/refs/heads/mv3-config-first-cut.zip).
-2. Extract the ZIP file. Open the extracted `axelspringerblocker-mv3-config-first-cut` folder.
+1. [Download the same branch ZIP](https://github.com/JoMangee/asblocker/archive/refs/heads/mv3-config-first-cut.zip).
+2. Extract the ZIP file. Open the extracted `asblocker-mv3-config-first-cut` folder.
 3. In Firefox, open `about:debugging#/runtime/this-firefox` (or go to `about:debugging` and choose **This Firefox**).
 4. Click **Load Temporary Add-on…**.
 5. Open the `extension_mv3` folder and select its `manifest.json` file. Firefox asks you to choose the add-on file inside the folder.
@@ -41,7 +43,7 @@ The options page has on/off switches for the **google**, **amazon**, **springer*
 
 ## Update the unpacked extension
 
-1. [Download the branch ZIP again](https://github.com/JoMangee/axelspringerblocker/archive/refs/heads/mv3-config-first-cut.zip).
+1. [Download the branch ZIP again](https://github.com/JoMangee/asblocker/archive/refs/heads/mv3-config-first-cut.zip).
 2. Extract it over the old project folder, replacing the old files. Keep track of the new `extension_mv3` folder.
 3. In Chrome, open `chrome://extensions`.
 4. Find the ASB Blocker card and click its **Reload** arrow. If you loaded it temporarily in Firefox, load `extension_mv3/manifest.json` again from `about:debugging` when needed.
@@ -65,5 +67,5 @@ The `extension/` folder is kept only for upstream reference. It is the legacy MV
 
 ## Links
 
-- [Branch ZIP download](https://github.com/JoMangee/axelspringerblocker/archive/refs/heads/mv3-config-first-cut.zip)
-- Release: https://github.com/JoMangee/axelspringerblocker/releases/tag/v0.1.0-mv3-first-cut
+- [Branch ZIP download](https://github.com/JoMangee/asblocker/archive/refs/heads/mv3-config-first-cut.zip)
+- Release: https://github.com/JoMangee/asblocker/releases/tag/v0.1.0-mv3-first-cut

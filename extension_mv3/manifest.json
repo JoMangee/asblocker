@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Axel Springer Blocker (ASB) — MV3 configurable first cut",
+  "name": "ASB Blocker",
   "version": "0.2.0",
-  "description": "Configurable MV3 skeleton for Axel Springer Blocker; upstream attribution in README-BLOCKER.md.",
+  "description": "Configurable site and tracker blocker - fork of the original ASB, modernised to MV3",
   "permissions": ["declarativeNetRequest", "storage"],
   "host_permissions": [
     "*://google.com/*", "*://*.google.com/*",
