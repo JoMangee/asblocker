@@ -34,7 +34,7 @@ Visit [bild.de](https://www.bild.de/) or [politico.eu](https://www.politico.eu/)
 
 ## Change what is blocked
 
-Open ASB Blocker's **Options** page from your browser's extensions page or the extension's menu. Turn the **google**, **amazon**, **springer**, and **adtrackers** categories on or off, and use the domain editor to add or remove domains in a category. Changes apply immediately; you do not need to rebuild the extension.
+Open ASB Blocker's **Options** page from your browser's extensions page or the extension's menu. Turn the **google**, **amazon**, **springer**, and **adtrackers** categories on or off, and use the domain editor to add or remove domains in a category. Changes take effect after you click Save. The Save button is at the top of the options page. You do not need to rebuild the extension.
 
 ## Update your unpacked copy
 
