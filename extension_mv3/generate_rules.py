@@ -6,7 +6,18 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-RESOURCE_TYPES = ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "media", "websocket", "other"]
+RESOURCE_TYPES = [
+    "main_frame",
+    "sub_frame",
+    "script",
+    "image",
+    "stylesheet",
+    "xmlhttprequest",
+    "ping",
+    "beacon",
+    "websocket",
+    "other",
+]
 
 
 def main():
