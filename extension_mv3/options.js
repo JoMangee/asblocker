@@ -10,11 +10,20 @@ const CATEGORIES = [
 const categoryContainer = document.getElementById("categories");
 const form = document.getElementById("settings");
 const saveButton = document.getElementById("save");
+const topSaveButton = document.getElementById("save-top");
+const unsavedBanner = document.getElementById("unsaved-banner");
 const status = document.getElementById("status");
+let dirty = false;
+let savedStatusTimeout;
 
 function setStatus(message, kind = "") {
   status.textContent = message;
   status.className = kind;
+}
+
+function markDirty() {
+  dirty = true;
+  unsavedBanner.hidden = false;
 }
 
 function addDomainRow(list, value = "") {
@@ -26,10 +35,14 @@ function addDomainRow(list, value = "") {
   input.placeholder = "example.com";
   input.autocomplete = "off";
   input.setAttribute("aria-label", "Domain");
+  input.addEventListener("input", markDirty);
   const remove = document.createElement("button");
   remove.type = "button";
   remove.textContent = "Remove";
-  remove.addEventListener("click", () => row.remove());
+  remove.addEventListener("click", () => {
+    markDirty();
+    row.remove();
+  });
   row.append(input, remove);
   list.append(row);
 }
@@ -47,6 +60,7 @@ function render(config) {
     checkbox.type = "checkbox";
     checkbox.checked = Boolean(entry.enabled);
     checkbox.dataset.category = key;
+    checkbox.addEventListener("change", markDirty);
     enabledLabel.append(checkbox, document.createTextNode(` Enable ${label}`));
     const list = document.createElement("div");
     list.className = "domain-list";
@@ -58,6 +72,7 @@ function render(config) {
     add.textContent = "Add domain";
     add.addEventListener("click", () => {
       addDomainRow(list);
+      markDirty();
       list.lastElementChild.querySelector("input").focus();
     });
     const hint = document.createElement("p");
@@ -87,6 +102,7 @@ async function loadConfig() {
 form.addEventListener("submit", async event => {
   event.preventDefault();
   saveButton.disabled = true;
+  topSaveButton.disabled = true;
   setStatus("Saving configuration and applying rules…");
   try {
     const config = {};
@@ -105,11 +121,18 @@ form.addEventListener("submit", async event => {
     if (!response || !response.ok) {
       throw new Error(response?.error || "The worker did not confirm the rule update.");
     }
-    setStatus(`Saved. ${response.ruleCount} dynamic domain rule(s) are active.`, "success");
+    dirty = false;
+    unsavedBanner.hidden = true;
+    setStatus("Saved - rules updated", "success");
+    clearTimeout(savedStatusTimeout);
+    savedStatusTimeout = setTimeout(() => {
+      if (!dirty && status.textContent === "Saved - rules updated") setStatus("");
+    }, 4000);
   } catch (error) {
     setStatus(error.message || String(error), "error");
   } finally {
     saveButton.disabled = false;
+    topSaveButton.disabled = false;
   }
 });
 
