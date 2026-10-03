@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Axel Springer Blocker (ASB) — MV3 configurable first cut",
+  "version": "0.1.0",
+  "description": "Configurable MV3 skeleton for Axel Springer Blocker; upstream attribution in README-BLOCKER.md.",
+  "permissions": ["declarativeNetRequest"],
+  "background": {"service_worker": "background.js"},
+  "declarative_net_request": {"rule_resources": [{"id": "configurable_blocklist", "enabled": true, "path": "rules.json"}]}
+}
