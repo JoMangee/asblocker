@@ -30,11 +30,11 @@ Firefox temporary add-ons may need to be loaded again after Firefox restarts.
 
 ## Check that blocking works
 
-Visit [bild.de](https://www.bild.de/) or [politico.eu](https://www.politico.eu/) while the matching blocking category is enabled. You should see a blocked page or an `ERR_BLOCKED_BY_CLIENT` message instead of the site loading normally. That message means the browser blocked the request.
+Visit [bild.de](https://www.bild.de/) or [politico.eu](https://www.politico.eu/) while the matching blocking category is enabled. The extension blocks matching page navigations and tracker/analytics requests, including scripts, XHR (`XMLHttpRequest`), beacons, and images. A blocked navigation may show a blocked page or an `ERR_BLOCKED_BY_CLIENT` message instead of the site loading normally; blocked tracker requests may be less visible and can be checked in the browser's Network panel. That message means the browser blocked the request.
 
 ## Change what is blocked
 
-Open ASB Blocker's **Options** page from your browser's extensions page or the extension's menu. Turn the **google**, **amazon**, **springer**, and **adtrackers** categories on or off, and use the domain editor to add or remove domains in a category. Changes take effect after you click Save. The Save button is at the top of the options page. You do not need to rebuild the extension.
+Open ASB Blocker's **Options** page from your browser's extensions page or the extension's menu. Turn the **google**, **amazon**, **springer**, and **adtrackers** categories on or off, and use the domain editor to add or remove domains in a category. The extension blocks matching page navigations as well as tracker/analytics calls made by pages, including scripts, XHR (`XMLHttpRequest`), beacons, and images. Changes take effect after you click Save. The Save button is at the top of the options page. You do not need to rebuild the extension.
 
 ## Update your unpacked copy
 
