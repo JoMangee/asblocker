@@ -1,30 +1,69 @@
-# Axel Springer Blocker (ASB): configurable blocklist and MV3 first cut
+# ASB Blocker MV3 first cut
 
-This addition supplies configurable domain groups, a uBlock-compatible filter list, and a minimal Manifest V3 extension using `declarativeNetRequest` (DNR). The legacy upstream `extension/` directory is intentionally unchanged.
+## What this is
 
-## License and upstream attribution
+ASB Blocker is a configurable domain blocker. This is the first cut of its Manifest V3 version (MV3). It lets you choose which groups of websites to block and edit the domain lists for those groups.
 
-Distributed under the repository's **GPL-3.0** license (see [`LICENSE`](LICENSE)). This addition retains the Axel Springer Blocker (ASB) project attribution: [upstream repository](https://github.com/JoMangee/axelspringerblocker). The upstream README links to the [original Chrome Web Store listing](https://chrome.google.com/webstore/detail/axel-springer-blocker-asb/cbnipbdpgncaghphljojicfgmkonflee). Preserve upstream attribution when redistributing or building on this work.
+This project is licensed under [GPL-3.0](https://github.com/JoMangee/axelspringerblocker/blob/mv3-config-first-cut/LICENSE). It is a fork of [AndreasGB/axelspringerblocker](https://github.com/AndreasGB/axelspringerblocker). This work is tracked as **MESHDEV-129**.
 
-## Configure and regenerate
+## Install the unpacked extension
 
-Edit category `enabled` booleans and `domains` arrays in root [`config.json`](config.json). Disabled groups are omitted from both generated outputs. From the repository root, run:
+An “unpacked” extension is one loaded directly from the folder you extracted. You do not need to build or package it first.
+
+### Chrome
+
+1. [Download the branch ZIP](https://github.com/JoMangee/axelspringerblocker/archive/refs/heads/mv3-config-first-cut.zip).
+2. Extract the ZIP file. Open the extracted `axelspringerblocker-mv3-config-first-cut` folder.
+3. In Chrome, open `chrome://extensions`.
+4. Turn on **Developer mode**.
+5. Click **Load unpacked**.
+6. Choose the `extension_mv3` folder inside the extracted project, then confirm.
+
+### Firefox
+
+1. [Download the same branch ZIP](https://github.com/JoMangee/axelspringerblocker/archive/refs/heads/mv3-config-first-cut.zip).
+2. Extract the ZIP file. Open the extracted `axelspringerblocker-mv3-config-first-cut` folder.
+3. In Firefox, open `about:debugging#/runtime/this-firefox` (or go to `about:debugging` and choose **This Firefox**).
+4. Click **Load Temporary Add-on…**.
+5. Open the `extension_mv3` folder and select its `manifest.json` file. Firefox asks you to choose the add-on file inside the folder.
+
+**Important:** In either browser, use `extension_mv3`. Do **not** load the old `extension/` folder; it is the legacy version and is not the loadable version for this first cut. Chrome may show an extension ID ending in `gjlpkah…`; that can be normal.
+
+## Test that it is working
+
+Jo's basic test is to visit [bild.de](https://www.bild.de/) or [politico.eu](https://www.politico.eu/). With the relevant blocking category enabled, expect the browser to show a blocked page or an `ERR_BLOCKED_BY_CLIENT` message instead of loading the site normally. That message means the request was blocked by the extension.
+
+## Configure categories and domain lists
+
+In Chrome, open `chrome://extensions`, find ASB Blocker, click **Details**, then **Extension options**. You can also right-click the extension icon and choose **Options**. In Firefox, open the add-on's preferences from its entry in `about:addons`.
+
+The options page has on/off switches for the **google**, **amazon**, **springer**, and **adtrackers** categories. Use the domain list editor to add or remove domains in a category. Changes apply immediately; you do not need to rebuild the extension.
+
+## Update the unpacked extension
+
+1. [Download the branch ZIP again](https://github.com/JoMangee/axelspringerblocker/archive/refs/heads/mv3-config-first-cut.zip).
+2. Extract it over the old project folder, replacing the old files. Keep track of the new `extension_mv3` folder.
+3. In Chrome, open `chrome://extensions`.
+4. Find the ASB Blocker card and click its **Reload** arrow. If you loaded it temporarily in Firefox, load `extension_mv3/manifest.json` again from `about:debugging` when needed.
+
+## Optional: rebuild the generated files
+
+Most users do not need to run these commands. If you are changing the project's source configuration, run them from the project folder, in this order:
 
 ```sh
 python3 blocklist_build.py
 python3 extension_mv3/generate_rules.py
 ```
 
-The first command writes root `blocklist.txt` with uBlock syntax (`||domain^`). The second reads the same config and writes `extension_mv3/rules.json`, a static DNR ruleset with one blocking rule per enabled, non-empty category. DNR `requestDomains` matches configured domains and their subdomains. The checked-in outputs match the default config.
+`config.json` is the source of truth for the categories and their domain lists. `blocklist_build.py` reads that configuration and writes `blocklist.txt`. `extension_mv3/generate_rules.py` reads the same configuration and writes `extension_mv3/rules.json`.
 
-## Load unpacked
+When the MV3 extension starts, `extension_mv3/background.js` seeds its saved settings and rebuilds the dynamic blocking rules. The `extension_mv3/options.*` files provide the live configuration page for changing the categories and domain lists.
 
-1. Regenerate after editing the configuration.
-2. Open `chrome://extensions` in a Chromium-based browser and enable **Developer mode**.
-3. Select **Load unpacked** and choose `extension_mv3/`.
+## Legacy folder
 
-This first cut does not replace or modify the legacy upstream extension under `extension/`.
+The `extension/` folder is kept only for upstream reference. It is the legacy MV2 version and is **not** the loadable version described here. Load `extension_mv3/` instead.
 
-## Configuring domains live
+## Links
 
-Open `chrome://extensions`, select this extension's **Details**, then open **Extension options**. Toggle the checkbox for each Google, Amazon, Springer, or ad-tracker category to enable or disable it. Use **Add domain** and **Remove** to edit the hostnames in each category, then select **Save**. Changes are saved in Chrome sync storage and applied immediately by the extension; no rebuild is needed.
+- [Branch ZIP download](https://github.com/JoMangee/axelspringerblocker/archive/refs/heads/mv3-config-first-cut.zip)
+- Release: https://github.com/JoMangee/axelspringerblocker/releases/tag/v0.1.0-mv3-first-cut
