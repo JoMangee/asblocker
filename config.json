@@ -2,5 +2,5 @@
   "google": {"enabled": true, "domains": ["google.com", "google.co.uk", "google.de", "google.fr", "google.ca", "google.com.au", "google.co.nz", "doubleclick.net", "googlesyndication.com", "googletagmanager.com", "google-analytics.com"]},
   "amazon": {"enabled": true, "domains": ["amazon.com", "amazon.co.uk", "amazon.de", "amazon.fr", "amazon.ca", "amazon.com.au", "amazon.co.jp"]},
   "springer": {"enabled": true, "domains": ["springer.com", "springerlink.com", "bild.de", "welt.de", "politico.eu", "businessinsider.com", "upday.com", "transfermarkt.de"]},
-  "adtrackers": {"enabled": true, "domains": ["adservice.google.com", "adform.net", "adroll.com", "criteo.com", "taboola.com", "outbrain.com"]}
+  "adtrackers": {"enabled": true, "domains": ["adservice.google.com", "adform.net", "adroll.com", "criteo.com", "taboola.com", "outbrain.com", "adnxs.com", "cxense.com", "comcluster.cxense.com", "id.cxense.com", "cdn.cxense.com", "api.cxense.com", "piano.io", "api-esp.piano.io", "buy-au.piano.io", "c2-au.piano.io", "cdn-au.piano.io", "parsely.com", "cdn.parsely.com", "p1.parsely.com", "experiments.parsely.com", "imrworldwide.com", "cdn-g1.imrworldwide.com", "secure-dcr.imrworldwide.com", "privacymanager.io", "ats-wrapper.privacymanager.io", "geo.privacymanager.io", "tblcontent.com", "api.tblcontent.com", "media.tblcontent.com", "static.tblcontent.com"]}
 }
