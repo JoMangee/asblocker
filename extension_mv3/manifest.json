@@ -3,7 +3,49 @@
   "name": "Axel Springer Blocker (ASB) — MV3 configurable first cut",
   "version": "0.1.0",
   "description": "Configurable MV3 skeleton for Axel Springer Blocker; upstream attribution in README-BLOCKER.md.",
-  "permissions": ["declarativeNetRequest"],
-  "background": {"service_worker": "background.js"},
-  "declarative_net_request": {"rule_resources": [{"id": "configurable_blocklist", "enabled": true, "path": "rules.json"}]}
+  "permissions": ["declarativeNetRequest", "storage"],
+  "host_permissions": [
+    "*://google.com/*", "*://*.google.com/*",
+    "*://google.co.uk/*", "*://*.google.co.uk/*",
+    "*://google.de/*", "*://*.google.de/*",
+    "*://google.fr/*", "*://*.google.fr/*",
+    "*://google.ca/*", "*://*.google.ca/*",
+    "*://google.com.au/*", "*://*.google.com.au/*",
+    "*://google.co.nz/*", "*://*.google.co.nz/*",
+    "*://doubleclick.net/*", "*://*.doubleclick.net/*",
+    "*://googlesyndication.com/*", "*://*.googlesyndication.com/*",
+    "*://googletagmanager.com/*", "*://*.googletagmanager.com/*",
+    "*://google-analytics.com/*", "*://*.google-analytics.com/*",
+    "*://amazon.com/*", "*://*.amazon.com/*",
+    "*://amazon.co.uk/*", "*://*.amazon.co.uk/*",
+    "*://amazon.de/*", "*://*.amazon.de/*",
+    "*://amazon.fr/*", "*://*.amazon.fr/*",
+    "*://amazon.ca/*", "*://*.amazon.ca/*",
+    "*://amazon.com.au/*", "*://*.amazon.com.au/*",
+    "*://amazon.co.jp/*", "*://*.amazon.co.jp/*",
+    "*://springer.com/*", "*://*.springer.com/*",
+    "*://springerlink.com/*", "*://*.springerlink.com/*",
+    "*://bild.de/*", "*://*.bild.de/*",
+    "*://welt.de/*", "*://*.welt.de/*",
+    "*://politico.eu/*", "*://*.politico.eu/*",
+    "*://businessinsider.com/*", "*://*.businessinsider.com/*",
+    "*://upday.com/*", "*://*.upday.com/*",
+    "*://transfermarkt.de/*", "*://*.transfermarkt.de/*",
+    "*://adservice.google.com/*", "*://*.adservice.google.com/*",
+    "*://adform.net/*", "*://*.adform.net/*",
+    "*://adroll.com/*", "*://*.adroll.com/*",
+    "*://criteo.com/*", "*://*.criteo.com/*",
+    "*://taboola.com/*", "*://*.taboola.com/*",
+    "*://outbrain.com/*", "*://*.outbrain.com/*"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": { "service_worker": "background.js" },
+  "declarative_net_request": {
+    "rule_resources": [
+      { "id": "configurable_blocklist", "enabled": true, "path": "rules.json" }
+    ]
+  }
 }
